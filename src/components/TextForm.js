@@ -84,8 +84,8 @@ export default function TextForm(props) {
                     <button type="submit" className="btn btn-primary mb-3 mx-2" onClick={rmvspace}>Remove Space</button>
                 </div>
                 <h2>your Text Summary</h2>
-                <p>{text.split(' ').length - 1} Words and {text.length} Characters</p>
-                <p>{text.split(' ').length * 0.05} Minutes Read</p>
+                <p>{text.split(' ').filter((element)=>{return element.length!==0}).length} Words and {text.split(' ')===''?text.length:''} Characters</p>
+                <p>{text.split(' ').filter((element)=>{return element.length!==0}).length * 0.008} Minutes Read</p>
                 <h2>Preview</h2>
                 {text.length > 0 ? text : "Input Something in TextEditor"}
             </div >

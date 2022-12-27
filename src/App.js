@@ -29,11 +29,28 @@ function App() {
       setMode('light')
       document.body.style.backgroundColor = 'darkgrey';
       showAlert("Dark Mode Enable", "success");
+      setInterval(() => {
+        document.title = 'React - LightMode'
+      }, 2000);
+      setInterval(() => {
+        document.title = 'React - Home'
+      }, 1500);
     } else {
       setMode('dark')
       document.body.style.backgroundColor = 'aliceblue';
       showAlert("Light Mode Enable", "danger");
+      setInterval(() => {
+        document.title = 'React - DarkMode'
+      }, 2000);
+      setInterval(() => {
+        document.title = 'React - Home'
+      }, 1500);
     }
+  }
+
+  const colorMode = (cls)=>{
+    console.log(cls);
+    document.body.classList = 'bg-'+cls;
   }
 
 
@@ -41,7 +58,7 @@ function App() {
     // <> called fragments
     <>
       <Router>
-        <Navbar title={'Nav'} mode={mode} toggleMode={toggleMode} />
+        <Navbar title={'Nav'} mode={mode} toggleMode={toggleMode} colorMode={colorMode} />
         <Alert alert={alert} />
         <Routes>
           <Route exact path="/about" element={<About />} />
